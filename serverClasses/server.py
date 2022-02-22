@@ -1,5 +1,4 @@
 import zmq
-# import json
 
 class Server:
     def __init__(self) -> None:
@@ -12,8 +11,6 @@ class Server:
 
     def acceptRequest(self):
         requestString =  self.socket.recv_string()
-        # json_string = json.loads(requestString)
-        # json_obj = json.dumps(json_string)
         print(f"From Client:", requestString)
         self.socket.send_string(f"Hello {requestString.capitalize()}")
 
